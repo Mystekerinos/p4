@@ -1,0 +1,17 @@
+.Illustration {
+  /*image utilisé*/
+  background-image: url(../images/weather.jpeg);
+
+  /* Hauteur totale */
+  height: 100%;
+
+  /* Centrer l'image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.illustration h1 {
+  text-align: center;
+  margin: 10;
+}
