@@ -5,6 +5,7 @@ const Accueil = () => {
   return (
     <div className="Illustration">
       <MainHeader />
+
       <h1>Bienvenue sur votre page Méteo</h1>
     </div>
   );

@@ -13,9 +13,9 @@ function ItemCity(props) {
   useEffect(() => {
     if (props.items === undefined) {
       console.log("ItemList.artist", enteredSearch);
-      props.firstFetchData(
-        `https://itunes.apple.com/search?term= ${enteredSearch}&media=music&entity=musicTrack`
-      );
+      // props.firstFetchData(
+      //   `https://itunes.apple.com/search?term= ${enteredSearch}&media=music&entity=musicTrack`
+      // );
     }
   }, [enteredSearch]);
 
