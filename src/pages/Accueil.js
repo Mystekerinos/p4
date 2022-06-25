@@ -6,7 +6,7 @@ const Accueil = () => {
     <div className="Illustration">
       <MainHeader />
 
-      <h1>Bienvenue sur votre page Méteo</h1>
+      <h1 className="Illustration_h1">Bienvenue sur votre page Méteo</h1>
     </div>
   );
 };
