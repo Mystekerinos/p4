@@ -2,18 +2,14 @@
   /*image utilisé*/
   background-image: url(../images/weather.jpeg);
 
-  /* Hauteur totale */
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-
   /* Centrer l'image */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.illustration_h1 {
-  text-align: center;
-  margin: 10;
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

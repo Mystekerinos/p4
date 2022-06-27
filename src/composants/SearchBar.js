@@ -1,12 +1,10 @@
 import "./SearchBar.css";
-import { useState } from "react";
 
 const SearchBar = () => {
-  const [enteredSearch, setEnteredSearch] = useState("");
-
   const CityChangeHandler = (event) => {
-    setEnteredSearch(event.target.value);
     console.log(event.target.value);
+    const CityName = event.target.value;
+    console.log(CityName);
   };
   const submitHandler = (event) => {
     event.preventDefault();
@@ -17,16 +15,16 @@ const SearchBar = () => {
         <label htmlFor="header-search">
           <span className="visually-hidden"></span>
         </label>
-
-        <button type="submit" onClick={() => {}}>
-          Search
-        </button>
-        <input
-          type="text"
-          value={enteredSearch}
-          onChange={CityChangeHandler}
-          placeholder="Search blog posts"
-        ></input>
+        <div className="button">
+          <button type="submit" onClick={() => {}}>
+            Search
+          </button>
+          <input
+            type="text"
+            onChange={CityChangeHandler}
+            placeholder="Search blog posts"
+          ></input>
+        </div>
       </form>
     </section>
   );
