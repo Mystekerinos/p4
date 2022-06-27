@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./SearchBar.css";
 
 const SearchBar = () => {
@@ -15,16 +16,18 @@ const SearchBar = () => {
         <label htmlFor="header-search">
           <span className="visually-hidden"></span>
         </label>
-        <div className="button">
-          <button type="submit" onClick={() => {}}>
-            Search
-          </button>
-          <input
-            type="text"
-            onChange={CityChangeHandler}
-            placeholder="Search blog posts"
-          ></input>
-        </div>
+        <Link to="/ItemCity">
+          <div className="button">
+            <button type="submi" onClick={() => {}}>
+              Search
+            </button>
+            <input
+              type="text"
+              onChange={CityChangeHandler}
+              placeholder="Search blog posts"
+            ></input>
+          </div>
+        </Link>
       </form>
     </section>
   );

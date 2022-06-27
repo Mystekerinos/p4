@@ -1,5 +1,7 @@
 import Accueil from "./pages/Accueil";
+import ItemCity from "./pages/ItemCity";
 import { Routes, Route, Navigate } from "react-router-dom";
+
 import "./App.css";
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
         <Route exact path="/Accueil" element={<Accueil />} />
 
         <Route path="*" element={<Navigate to="/" />} />
+        <Route exact path="/ItemCity" element={<ItemCity />} />
       </Routes>
     </div>
   );
