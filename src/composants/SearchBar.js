@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./SearchBar.css";
+import { useState } from "react";
 
 const SearchBar = () => {
+  const [enteredSearch, setEnteredSearch] = useState("");
+
   const CityChangeHandler = (event) => {
-    console.log(event.target.value);
-    const CityName = event.target.value;
-    console.log(CityName);
+    setEnteredSearch(event.target.value);
+    console.log("SearchBar.event.target.value", event.target.value);
   };
   const submitHandler = (event) => {
     event.preventDefault();
@@ -16,18 +18,20 @@ const SearchBar = () => {
         <label htmlFor="header-search">
           <span className="visually-hidden"></span>
         </label>
-        <Link to="/ItemCity">
-          <div className="button">
-            <button type="submi" onClick={() => {}}>
+        <div className="button">
+          <input
+            type="text"
+            value={enteredSearch}
+            id="search"
+            onChange={CityChangeHandler}
+            placeholder="Search blog posts"
+          ></input>
+          <Link to="/ItemCity">
+            <button type="submit" onClick={() => {}}>
               Search
             </button>
-            <input
-              type="text"
-              onChange={CityChangeHandler}
-              placeholder="Search blog posts"
-            ></input>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </form>
     </section>
   );
