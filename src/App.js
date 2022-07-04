@@ -12,7 +12,7 @@ function App() {
         <Route exact path="/Accueil" element={<Accueil />} />
 
         <Route path="*" element={<Navigate to="/" />} />
-        <Route exact path="/ItemCity" element={<ItemCity />} />
+        <Route exact path="/ItemCity/:enteredSearch" element={<ItemCity />} />
       </Routes>
     </div>
   );

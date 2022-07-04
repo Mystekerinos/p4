@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { itemsFetchData, nameFetchData } from "../Actions/items";
 import "./SearchBar.css";
 import { useState } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [enteredSearch, setEnteredSearch] = useState("");
 
   const CityChangeHandler = (event) => {
@@ -26,8 +29,13 @@ const SearchBar = () => {
             onChange={CityChangeHandler}
             placeholder="Search blog posts"
           ></input>
-          <Link to="/ItemCity">
-            <button type="submit" onClick={() => {}}>
+          <Link to={`/ItemCity/${enteredSearch}`}>
+            <button
+              type="submit"
+              onClick={() => {
+                props.fetchName(enteredSearch);
+              }}
+            >
               Search
             </button>
           </Link>
@@ -37,4 +45,28 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+SearchBar.propTypes = {
+  fetchName: PropTypes.func.isRequired,
+  fetchData: PropTypes.func.isRequired,
+
+  hasError: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    name: state.getSong.results,
+    results: state.getSong.results,
+    hasError: state.itemsHaveError,
+    isLoading: state.itemsAreLoading,
+  };
+};
+
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchData: (url) => dispatch(itemsFetchData(url)),
+    fetchName: (name) => dispatch(nameFetchData(name)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
