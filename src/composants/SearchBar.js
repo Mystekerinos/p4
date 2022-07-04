@@ -33,6 +33,7 @@ const SearchBar = (props) => {
             <button
               type="submit"
               onClick={() => {
+                props.fetchData(`https://api.ambeedata.com`);
                 props.fetchName(enteredSearch);
               }}
             >
