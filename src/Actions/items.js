@@ -1,10 +1,9 @@
 import axios from "axios";
-export const ITEMS_GET_DATA_SUCCESS_LYRICS = "ITEMS_GET_DATA_SUCCESS_LYRICS";
+
 export const ITEMS_FETCH_DATA_SUCCESS = "ITEMS_FETCH_DATA_SUCCESS";
 export const ITEMS_FIRST_FETCH_DATA_SUCCESS = "ITEMS_FIRST_FETCH_DATA_SUCCESS";
-export const ITEMS_FIRST_FETCH_PREVIEWURL_SUCCESS =
-  "ITEMS_FIRST_FETCH_PREVIEWURL_SUCCESS";
-export const GET_SONG = "GET_Song";
+
+export const GET_CITY = "GET_City";
 export const GET_NAME = "GET_Name";
 
 export function getName(string) {
@@ -15,19 +14,11 @@ export function getName(string) {
   };
 }
 
-export function getSong(string) {
-  console.log("getSong", string);
+export function getCity(string) {
+  console.log("getCity", string);
   return {
-    type: GET_SONG,
-    song: string,
-  };
-}
-
-export function getItemDataSuccessLyrics(string) {
-  console.log("array", string);
-  return {
-    type: ITEMS_GET_DATA_SUCCESS_LYRICS,
-    lyrics: string,
+    type: GET_CITY,
+    city: string,
   };
 }
 
@@ -49,20 +40,6 @@ export function itemsFetchDataSuccess(array) {
   return {
     type: ITEMS_FETCH_DATA_SUCCESS,
     results: array,
-  };
-}
-
-export function itemsFirstFetchDataSuccess(array) {
-  return {
-    type: ITEMS_FIRST_FETCH_DATA_SUCCESS,
-    firstResults: array,
-  };
-}
-
-export function itemsFirstFetchPreviewUrlSuccess(array) {
-  return {
-    type: ITEMS_FIRST_FETCH_PREVIEWURL_SUCCESS,
-    firstPreviewUrl: array,
   };
 }
 
@@ -110,80 +87,14 @@ export function itemsFirstFetchData(url) {
   };
 }
 
-export function getItemData(song) {
+export function getItemData(city) {
   return (dispatch) => {
-    dispatch(getSong(song));
-  };
-}
-
-export function itemsFirstFetchPreviewUrl(url) {
-  return (dispatch) => {
-    dispatch(itemsAreLoading(true));
-
-    axios
-      .get(url)
-      .then((response) => {
-        console.log("aaaaaaaaaa", response, response.status);
-        if (response.status !== 200) {
-          throw Error(response.statusText);
-        }
-
-        dispatch(itemsAreLoading(false));
-
-        return response;
-      })
-      .then((response) => dispatch(getSong(response.data.results[0])))
-
-      .catch(() => dispatch(itemsHaveError(true)));
+    dispatch(getCity(city));
   };
 }
 
 export function nameFetchData(name) {
   return (dispatch) => {
     dispatch(getName(name));
-  };
-}
-
-export function getDataLyrics(props) {
-  return (dispatch) => {
-    dispatch(itemsAreLoading(true));
-
-    axios
-      .get(`https://api.lyrics.ovh/v1/${props.artistName}/${props.trackName}`)
-      .then((response) => {
-        console.log(response, response.status);
-        if (response.status !== 200) {
-          throw Error(response.statusText);
-        }
-
-        dispatch(itemsAreLoading(false));
-
-        return response;
-      })
-      .then((response) => dispatch(getItemDataSuccessLyrics(response.data)))
-
-      .catch(() => dispatch(itemsHaveError(true)));
-  };
-}
-
-export function firstItemsGetDataLyrics(url) {
-  return (dispatch) => {
-    dispatch(itemsAreLoading(true));
-
-    axios
-      .get(url)
-      .then((response) => {
-        console.log(response, response.status);
-        if (response.status !== 200) {
-          throw Error(response.statusText);
-        }
-
-        dispatch(itemsAreLoading(false));
-
-        return response;
-      })
-      .then((response) => dispatch(getItemDataSuccessLyrics(response.data)))
-
-      .catch(() => dispatch(itemsHaveError(true)));
   };
 }

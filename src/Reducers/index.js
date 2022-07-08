@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-import { itemsHaveError, itemsAreLoading, itemsLyrics, getSong } from "./items";
+import { itemsHaveError, itemsAreLoading, getCity } from "./items";
 
 export default combineReducers({
   itemsHaveError,
   itemsAreLoading,
-  getSong,
-  itemsLyrics,
+  getCity,
 });

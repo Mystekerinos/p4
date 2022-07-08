@@ -33,7 +33,9 @@ const SearchBar = (props) => {
             <button
               type="submit"
               onClick={() => {
-                props.fetchData(`https://api.ambeedata.com`);
+                props.fetchData(
+                  `https://api.weatherapi.com/v1/current.json?key= 9e4a50a27942493f9c2154652220407&q=London&aqi=no`
+                );
                 props.fetchName(enteredSearch);
               }}
             >
@@ -56,8 +58,8 @@ SearchBar.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.getSong.results,
-    results: state.getSong.results,
+    name: state.getCity.current,
+    results: state.getCity.location,
     hasError: state.itemsHaveError,
     isLoading: state.itemsAreLoading,
   };
