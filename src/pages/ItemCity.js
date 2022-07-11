@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // import { useEffect } from "react";
 // import { useParams } from "react-router-dom";
 
-const ItemCity = (props, country) => {
+const ItemCity = (props) => {
   console.log("ItemCity.props", props);
   // const { name } = useParams();
 
@@ -45,11 +45,25 @@ const ItemCity = (props, country) => {
     <div>
       <br />
       <br />
+      <h1> {props.results.location.name}</h1>
+      <br />
+      {props.results.current.condition.icon}
+      <br />
+      {props.results.current.condition.text}
       <br />
       <br />
+      Country: {props.results.location.country} <br />
+      Region: {props.results.location.region} <br />
+      lat:{props.results.location.lat}
       <br />
-
-      {props.results.location.country}
+      localtime: {props.results.location.localtime}
+      <br />
+      cloud: {props.results.current.cloud}
+      <br />
+      temperature: {props.results.current.temp_c} <br />
+      direction du vent: {props.results.current.wind_dir} <br />
+      vitesse du vent: {props.results.current.wind_mph} <br />
+      Humidité: {props.results.current.humidity} <br />
     </div>
   );
 };
