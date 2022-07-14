@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import PropTypes from "prop-types";
+
 // import { useEffect } from "react";
 // import { useParams } from "react-router-dom";
 
@@ -47,29 +48,27 @@ const ItemCity = (props) => {
       <br />
       <h1> {props.name}</h1>
       <br />
-      {/* {props.results.current.condition.icon}
-      <br />
-      {props.results.current.condition.text} */}
       <br />
       <br />
-      Country: {props.results.location.country} <br />
-      Region: {props.results.location.region} <br />
-      lat:{props.results.location.lat}
+      Condition: {props.condition.text} <br />
+      {props.condition.icon} <br />
+      Country: {props.country} <br />
+      Region: {props.region} <br />
+      lat: {props.lat}
       <br />
-      localtime: {props.results.location.localtime}
+      localtime: "{props.localtime}"
       <br />
-      cloud: {props.results.current.cloud}
+      cloud: {props.cloud}
       <br />
-      temperature: {props.results.current.temp_c} <br />
-      direction du vent: {props.results.current.wind_dir} <br />
-      vitesse du vent: {props.results.current.wind_mph} <br />
-      Humidité: {props.results.current.humidity} <br />
+      temperature: {props.temp_c} <br />
+      direction du vent: {props.wind_dir} <br />
+      vitesse du vent: {props.wind_mph} <br />
+      Humidité: {props.humidity} <br />
     </div>
   );
 };
 
 ItemCity.propTypes = {
-  results: PropTypes.object.isRequired,
   hasError: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
 };
@@ -77,7 +76,16 @@ ItemCity.propTypes = {
 const mapStateToProps = (state) => {
   console.log("state", state);
   return {
-    results: state.getCity,
+    country: state.getCity.location.country,
+    region: state.getCity.location.region,
+    lat: state.getCity.location.lat,
+    localtime: state.getCity.location.localtime,
+    cloud: state.getCity.current.cloud,
+    temp_c: state.getCity.current.temp_c,
+    wind_dir: state.getCity.current.wind_dir,
+    wind_mph: state.getCity.current.wind_mph,
+    humidity: state.getCity.current.humidity,
+    condition: state.getCity.current.condition,
     name: state.getName.name,
     hasError: state.itemsHaveError,
     isLoading: state.itemsAreLoading,
