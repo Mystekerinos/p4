@@ -87,12 +87,6 @@ export function itemsFirstFetchData(url) {
   };
 }
 
-export function getItemData(city) {
-  return (dispatch) => {
-    dispatch(getCity(city));
-  };
-}
-
 export function nameFetchData(name) {
   return (dispatch) => {
     dispatch(getName(name));

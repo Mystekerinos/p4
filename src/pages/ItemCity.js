@@ -45,11 +45,11 @@ const ItemCity = (props) => {
     <div>
       <br />
       <br />
-      <h1> {props.results.location.name}</h1>
+      <h1> {props.name}</h1>
       <br />
-      {props.results.current.condition.icon}
+      {/* {props.results.current.condition.icon}
       <br />
-      {props.results.current.condition.text}
+      {props.results.current.condition.text} */}
       <br />
       <br />
       Country: {props.results.location.country} <br />
@@ -78,6 +78,7 @@ const mapStateToProps = (state) => {
   console.log("state", state);
   return {
     results: state.getCity,
+    name: state.getName.name,
     hasError: state.itemsHaveError,
     isLoading: state.itemsAreLoading,
   };

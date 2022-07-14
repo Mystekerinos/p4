@@ -34,7 +34,7 @@ const SearchBar = (props) => {
               type="submit"
               onClick={() => {
                 props.fetchData(
-                  `https://api.weatherapi.com/v1/current.json?key= 9e4a50a27942493f9c2154652220407&q=London&aqi=no`
+                  `https://api.weatherapi.com/v1/current.json?key= 9e4a50a27942493f9c2154652220407&q=${enteredSearch}&aqi=no`
                 );
                 props.fetchName(enteredSearch);
               }}
