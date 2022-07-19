@@ -26,14 +26,17 @@ export function itemsAreLoading(state = false, action) {
 export function getCity(
   state = {
     results: [],
+
+    firstResults: [],
   },
   action
 ) {
-  console.log(action);
+  console.log("results", action);
   switch (action.type) {
     case ITEMS_FETCH_DATA_SUCCESS:
-      console.log("items.ReducerResults", action.results);
-      return action.results;
+      console.log("action.Results", action.results);
+      return { ...state, results: action.results };
+
     case ITEMS_FIRST_FETCH_DATA_SUCCESS:
       console.log("firstResults", action.firstResults);
       return { ...state, firstResults: action.firstResults };
@@ -49,9 +52,10 @@ export function getName(
   },
   action
 ) {
+  console.log("name", action);
   switch (action.type) {
     case GET_NAME:
-      console.log("name", action.name);
+      console.log("action.name", action.name);
       return { ...state, name: action.name };
 
     default:

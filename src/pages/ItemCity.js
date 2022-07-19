@@ -46,24 +46,43 @@ const ItemCity = (props) => {
     <div>
       <br />
       <br />
-      <h1> {props.name}</h1>
+      <h1> {props.Name}</h1>
       <br />
       <br />
       <br />
-      Condition: {props.condition.text} <br />
-      {props.condition.icon} <br />
-      Country: {props.country} <br />
-      Region: {props.region} <br />
-      lat: {props.lat}
-      <br />
-      localtime: "{props.localtime}"
-      <br />
-      cloud: {props.cloud}
-      <br />
-      temperature: {props.temp_c} <br />
-      direction du vent: {props.wind_dir} <br />
-      vitesse du vent: {props.wind_mph} <br />
-      Humidité: {props.humidity} <br />
+
+      <p>
+        {props.current?.condition.icon}
+        <br />
+        Condition: {props.current?.condition.text}
+        <br />
+        Country: {props.location?.country}
+        <br />
+        Region: {props.location?.region}
+        <br />
+        Localtime: "{props.location?.localtime}"
+        <br />
+        Cloud: {props.current?.cloud}
+        <br />
+        Temp C°: {props.current?.temp_c}
+        <br />
+        Direction du vent: {props.current?.wind_dir}
+        <br />
+        Vitesse du vent en Mph: {props.current?.wind_mph}
+        <br />
+        Humidité: {props.current?.humidity}
+      </p>
+
+      {/* {(props.locationt || []).map((item, i) => (
+        <ul key={i}>
+          {console.log("item", item)}
+          <p>
+            Cloud:
+            <br />
+            <br />
+          </p>
+        </ul>
+      ))} */}
     </div>
   );
 };
@@ -76,17 +95,9 @@ ItemCity.propTypes = {
 const mapStateToProps = (state) => {
   console.log("state", state);
   return {
-    country: state.getCity.location.country,
-    region: state.getCity.location.region,
-    lat: state.getCity.location.lat,
-    localtime: state.getCity.location.localtime,
-    cloud: state.getCity.current.cloud,
-    temp_c: state.getCity.current.temp_c,
-    wind_dir: state.getCity.current.wind_dir,
-    wind_mph: state.getCity.current.wind_mph,
-    humidity: state.getCity.current.humidity,
-    condition: state.getCity.current.condition,
-    name: state.getName.name,
+    current: state.getCity.results.current,
+    location: state.getCity.results.location,
+    Name: state.getName.name,
     hasError: state.itemsHaveError,
     isLoading: state.itemsAreLoading,
   };
