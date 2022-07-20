@@ -7,6 +7,9 @@ import PropTypes from "prop-types";
 
 const ItemCity = (props) => {
   console.log("ItemCity.props", props);
+
+  const url = `http://openweathermap.org/img/wn/${props.icon?.[0].icon}@2x.png`;
+  console.log("image", url);
   // const { name } = useParams();
 
   // useEffect(() => {
@@ -52,37 +55,24 @@ const ItemCity = (props) => {
       <br />
 
       <p>
-        {props.current?.condition.icon}
+        <img src="url" alt=""></img>
         <br />
-        Condition: {props.current?.condition.text}
+        Base: "{props.base}"
         <br />
-        Country: {props.location?.country}
+        Description: "{props.weather?.[0].description}"
         <br />
-        Region: {props.location?.region}
+        Country: "{props.sys?.country}"
         <br />
-        Localtime: "{props.location?.localtime}"
+        Cloud: {props.clouds?.all}
         <br />
-        Cloud: {props.current?.cloud}
+        Temp C°: {props.main?.temp}
         <br />
-        Temp C°: {props.current?.temp_c}
+        Vitesse du vent en Mph: {props.wind?.speed}
         <br />
-        Direction du vent: {props.current?.wind_dir}
+        Humidité en %: {props.main?.humidity}
         <br />
-        Vitesse du vent en Mph: {props.current?.wind_mph}
-        <br />
-        Humidité: {props.current?.humidity}
+        Pression en Pascal: {props.main?.pressure}
       </p>
-
-      {/* {(props.locationt || []).map((item, i) => (
-        <ul key={i}>
-          {console.log("item", item)}
-          <p>
-            Cloud:
-            <br />
-            <br />
-          </p>
-        </ul>
-      ))} */}
     </div>
   );
 };
@@ -95,8 +85,13 @@ ItemCity.propTypes = {
 const mapStateToProps = (state) => {
   console.log("state", state);
   return {
-    current: state.getCity.results.current,
-    location: state.getCity.results.location,
+    icon: state.getCity.results.weather,
+    weather: state.getCity.results.weather,
+    sys: state.getCity.results.sys,
+    wind: state.getCity.results.wind,
+    clouds: state.getCity.results.clouds,
+    base: state.getCity.results.base,
+    main: state.getCity.results.main,
     Name: state.getName.name,
     hasError: state.itemsHaveError,
     isLoading: state.itemsAreLoading,
