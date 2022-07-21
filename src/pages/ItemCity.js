@@ -8,8 +8,6 @@ import PropTypes from "prop-types";
 const ItemCity = (props) => {
   console.log("ItemCity.props", props);
 
-  const url = `http://openweathermap.org/img/wn/${props.icon?.[0].icon}@2x.png`;
-  console.log("image", url);
   // const { name } = useParams();
 
   // useEffect(() => {
@@ -55,7 +53,10 @@ const ItemCity = (props) => {
       <br />
 
       <p>
-        <img src="url" alt=""></img>
+        <img
+          src={`http://openweathermap.org/img/wn/${props.weather?.[0].icon}@2x.png`}
+          alt=""
+        />
         <br />
         Base: "{props.base}"
         <br />
