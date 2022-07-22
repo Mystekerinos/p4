@@ -59,7 +59,7 @@ const ItemCity = (props) => {
     ) {
       console.log("UrlState", enteredSearch);
       props.firstName(
-        ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a`
+        ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a&lang=fr`
       );
       props.nameFirstFetchData(enteredSearch);
     }
@@ -110,11 +110,11 @@ const ItemCity = (props) => {
         <br />
         Description: "{props.weather?.[0].description}"
         <br />
-        Date: {day}
+        Date/Heure: {day}
         <br />
-        Country: "{props.sys?.country}"
+        Pays: "{props.sys?.country}"
         <br />
-        Cloud: {props.clouds?.all}
+        Nuage en %: {props.clouds?.all}
         <br />
         Temp C°: {props.main?.temp}
         <br />
