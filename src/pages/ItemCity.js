@@ -15,6 +15,7 @@ const ItemCity = (props) => {
       "useEffect",
       props.Name === undefined ||
         props.weather?.[0].icon === undefined ||
+        props.date === undefined ||
         props.base === undefined ||
         props.sys?.country === undefined ||
         props.weather?.[0].description ||
@@ -26,6 +27,7 @@ const ItemCity = (props) => {
         props.main?.humidity === undefined ||
         props.main?.pressure === undefined,
       props.Name,
+      props.date,
       props.weather?.[0].icon,
       props.weather?.[0].description,
       props.sys?.country,
@@ -40,6 +42,7 @@ const ItemCity = (props) => {
     if (
       props.Name === undefined ||
       props.weather?.[0].icon === undefined ||
+      props.date === undefined ||
       props.base === undefined ||
       props.sys?.country === undefined ||
       props.weather?.[0].description ||
@@ -104,6 +107,8 @@ const ItemCity = (props) => {
         <br />
         Description: "{props.weather?.[0].description}"
         <br />
+        Date:{props.date}
+        <br />
         Country: "{props.sys?.country}"
         <br />
         Cloud: {props.clouds?.all}
@@ -128,6 +133,7 @@ ItemCity.propTypes = {
 const mapStateToProps = (state) => {
   console.log("state", state);
   return {
+    date: state.getCity.results.dt,
     icon: state.getCity.results.weather,
     weather: state.getCity.results.weather,
     sys: state.getCity.results.sys,
