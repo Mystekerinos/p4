@@ -1,14 +1,13 @@
 import axios from "axios";
 
 export const ITEMS_FETCH_DATA_SUCCESS = "ITEMS_FETCH_DATA_SUCCESS";
-export const ITEMS_FIRST_FETCH_DATA_SUCCESS = "ITEMS_FIRST_FETCH_DATA_SUCCESS";
 
-export const GET_NAME = "GET_Name";
+export const GET_CITY = "GET_City";
 
-export function getName(string) {
+export function getCity(string) {
   console.log("getName", string);
   return {
-    type: GET_NAME,
+    type: GET_CITY,
     name: string,
   };
 }
@@ -56,30 +55,30 @@ export function itemsFetchData(url) {
   };
 }
 
-// export function itemsFirstFetchData(url) {
-//   return (dispatch) => {
-//     dispatch(itemsAreLoading(true));
+export function firstItemsGetDataName(url) {
+  return (dispatch) => {
+    dispatch(itemsAreLoading(true));
 
-//     axios
-//       .get(url)
-//       .then((response) => {
-//         console.log(response, response.status);
-//         if (response.status !== 200) {
-//           throw Error(response.statusText);
-//         }
+    axios
+      .get(url)
+      .then((response) => {
+        console.log(response, response.status);
+        if (response.status !== 200) {
+          throw Error(response.statusText);
+        }
 
-//         dispatch(itemsAreLoading(false));
+        dispatch(itemsAreLoading(false));
 
-//         return response;
-//       })
-//       .then((response) => dispatch(itemsFetchDataSuccess(response.data)))
+        return response;
+      })
+      .then((response) => dispatch(itemsFetchDataSuccess(response.data)))
 
-//       .catch(() => dispatch(itemsHaveError(true)));
-//   };
-// }
+      .catch(() => dispatch(itemsHaveError(true)));
+  };
+}
 
 export function nameFetchData(name) {
   return (dispatch) => {
-    dispatch(getName(name));
+    dispatch(getCity(name));
   };
 }

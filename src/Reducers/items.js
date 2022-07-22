@@ -1,7 +1,6 @@
 import { ITEMS_FETCH_DATA_SUCCESS } from "../Actions/items";
-import { ITEMS_FIRST_FETCH_DATA_SUCCESS } from "../Actions/items";
 
-import { GET_NAME } from "../Actions/items";
+import { GET_CITY } from "../Actions/items";
 
 export function itemsHaveError(state = false, action) {
   switch (action.type) {
@@ -26,8 +25,7 @@ export function itemsAreLoading(state = false, action) {
 export function getCity(
   state = {
     results: [],
-
-    firstResults: [],
+    name: undefined,
   },
   action
 ) {
@@ -37,25 +35,8 @@ export function getCity(
       console.log("action.Results", action.results);
       return { ...state, results: action.results };
 
-    case ITEMS_FIRST_FETCH_DATA_SUCCESS:
-      console.log("firstResults", action.firstResults);
-      return { ...state, firstResults: action.firstResults };
-
-    default:
-      return state;
-  }
-}
-
-export function getName(
-  state = {
-    name: "",
-  },
-  action
-) {
-  console.log("name", action);
-  switch (action.type) {
-    case GET_NAME:
-      console.log("action.name", action.name);
+    case GET_CITY:
+      console.log("name", action.name);
       return { ...state, name: action.name };
 
     default:
