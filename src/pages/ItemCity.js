@@ -18,7 +18,7 @@ const ItemCity = (props) => {
       "useEffect",
       props.Name === undefined ||
         props.weather?.[0].icon === undefined ||
-        props.day === undefined ||
+        day === undefined ||
         props.base === undefined ||
         props.sys?.country === undefined ||
         props.weather?.[0].description ||
