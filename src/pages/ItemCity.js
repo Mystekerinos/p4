@@ -10,12 +10,15 @@ const ItemCity = (props) => {
 
   const { enteredSearch } = useParams();
 
+  const d = new Date();
+  const day = d.toLocaleString(d.getDate(props.date));
+
   useEffect(() => {
     console.log(
       "useEffect",
       props.Name === undefined ||
         props.weather?.[0].icon === undefined ||
-        props.date === undefined ||
+        props.day === undefined ||
         props.base === undefined ||
         props.sys?.country === undefined ||
         props.weather?.[0].description ||
@@ -27,7 +30,7 @@ const ItemCity = (props) => {
         props.main?.humidity === undefined ||
         props.main?.pressure === undefined,
       props.Name,
-      props.date,
+      day,
       props.weather?.[0].icon,
       props.weather?.[0].description,
       props.sys?.country,
@@ -42,7 +45,7 @@ const ItemCity = (props) => {
     if (
       props.Name === undefined ||
       props.weather?.[0].icon === undefined ||
-      props.date === undefined ||
+      day === undefined ||
       props.base === undefined ||
       props.sys?.country === undefined ||
       props.weather?.[0].description ||
@@ -107,7 +110,7 @@ const ItemCity = (props) => {
         <br />
         Description: "{props.weather?.[0].description}"
         <br />
-        Date:{props.date}
+        Date: {day}
         <br />
         Country: "{props.sys?.country}"
         <br />
