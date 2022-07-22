@@ -82,3 +82,9 @@ export function nameFetchData(name) {
     dispatch(getCity(name));
   };
 }
+
+export function firstNameFetchData(name) {
+  return (dispatch) => {
+    dispatch(getCity(name));
+  };
+}

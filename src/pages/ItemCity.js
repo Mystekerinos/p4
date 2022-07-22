@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import PropTypes from "prop-types";
-import { firstItemsGetDataName } from "../Actions/items";
+import { firstItemsGetDataName, firstNameFetchData } from "../Actions/items";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -55,6 +55,7 @@ const ItemCity = (props) => {
       props.firstName(
         ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a`
       );
+      props.nameFirstFetchData(enteredSearch);
     }
   }, [enteredSearch]);
 
@@ -143,6 +144,7 @@ const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
   return {
     firstName: (url) => dispatch(firstItemsGetDataName(url)),
+    nameFirstFetchData: (name) => dispatch(firstNameFetchData(name)),
   };
 };
 
