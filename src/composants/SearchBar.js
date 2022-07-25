@@ -4,6 +4,8 @@ import "./SearchBar.css";
 import { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = (props) => {
   const [enteredSearch, setEnteredSearch] = useState("");
@@ -18,30 +20,35 @@ const SearchBar = (props) => {
   return (
     <section>
       <form onSubmit={submitHandler}>
-        <label htmlFor="header-search">
-          <span className="visually-hidden"></span>
-        </label>
-        <div className="button">
-          <input
-            type="text"
-            value={enteredSearch}
-            id="search"
-            onChange={CityChangeHandler}
-            placeholder="Search blog posts"
-          ></input>
-          <Link to={`/ItemCity/${enteredSearch}`}>
-            <button
-              type="submit"
-              onClick={() => {
-                props.fetchData(
-                  ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a&lang=fr`
-                );
-                props.fetchName(enteredSearch);
-              }}
-            >
-              Search
-            </button>
-          </Link>
+        <div className="container">
+          <div id="content">
+            <div className="input-group">
+              <input
+                type="text"
+                value={enteredSearch}
+                className="form-control search-form"
+                id="search"
+                onChange={CityChangeHandler}
+                placeholder="Search .."
+              />
+              <span class="input-group-btn" style={{ width: "39px" }} />
+              <Link to={`/ItemCity/${enteredSearch}`}>
+                <button
+                  id="search-this"
+                  className="pull-right btn btn-default search-btn"
+                  type="submit"
+                  onClick={() => {
+                    props.fetchData(
+                      ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a&lang=fr`
+                    );
+                    props.fetchName(enteredSearch);
+                  }}
+                >
+                  <FontAwesomeIcon icon={faSearch} />
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </form>
     </section>

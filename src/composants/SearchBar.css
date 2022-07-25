@@ -1,11 +1,26 @@
-.visually-hidden {
-  background-color: #8bcac7;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.content {
+  padding: 25% 25% 5%;
 }
 
-.button {
-  display: flex;
-  justify-content: flex-end;
+.search-form {
+  border-radius: 30px 0 0 30px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.input-group-btn {
+  max-width: 38px;
+}
+
+#search {
+  border: 1px;
+}
+
+.search-btn {
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
 }

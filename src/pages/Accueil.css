@@ -1,11 +1,15 @@
 .Illustration {
   /*image utilisé*/
-  background-image: url(../images/weather.jpeg);
+  background-image: url(../images/weather.jpg);
 
-  /* Centrer l'image */
+  /* image plein ecran */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .title {
