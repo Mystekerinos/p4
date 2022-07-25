@@ -23,6 +23,7 @@ const SearchBar = (props) => {
         <div className="container">
           <div id="content">
             <div className="input-group">
+              <h1 className="title"> Bienvenue sur votre page Méteo</h1>
               <input
                 type="text"
                 value={enteredSearch}

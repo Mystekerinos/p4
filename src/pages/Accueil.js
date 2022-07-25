@@ -1,11 +1,11 @@
 import "../pages/Accueil.css";
-import MainHeader from "../composants/MainHeader";
+
+import SearchBar from "../composants/SearchBar";
 
 const Accueil = () => {
   return (
     <div className="Illustration">
-      <MainHeader />
-      <h1 className="title"> Bienvenue sur votre page Méteo</h1>
+      <SearchBar />
     </div>
   );
 };
