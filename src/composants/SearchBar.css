@@ -5,7 +5,7 @@
 .container {
   position: fixed;
   top: 40%;
-  left: 40%;
+  left: 30%;
 }
 
 .search-form {
@@ -37,4 +37,5 @@
 .title {
   display: flex;
   justify-content: center;
+  color: rgb(255, 255, 255);
 }
