@@ -9,10 +9,11 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = (props) => {
   const [enteredSearch, setEnteredSearch] = useState("");
-
+  const [formIsValid, setFormIsValid] = useState(false);
   const CityChangeHandler = (event) => {
     setEnteredSearch(event.target.value);
     console.log("SearchBar.event.target.value", event.target.value);
+    setFormIsValid(event.target.value.trim().length > 3);
   };
   const submitHandler = (event) => {
     event.preventDefault();
@@ -32,12 +33,13 @@ const SearchBar = (props) => {
                 onChange={CityChangeHandler}
                 placeholder="Search .."
               />
-              <span class="input-group-btn" style={{ width: "39px" }} />
+              <span className="input-group-btn" style={{ width: "39px" }} />
               <Link to={`/ItemCity/${enteredSearch}`}>
                 <button
                   id="search-this"
                   className="pull-right btn btn-default search-btn"
                   type="submit"
+                  disabled={!formIsValid}
                   onClick={() => {
                     props.fetchData(
                       ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a&lang=fr`

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { firstItemsGetDataName, firstNameFetchData } from "../Actions/items";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import MainHeader from "../composants/MainHeader";
 
 const ItemCity = (props) => {
   console.log("ItemCity.props", props);
@@ -93,6 +94,13 @@ const ItemCity = (props) => {
 
   return (
     <div>
+      <MainHeader />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
       <br />
       <h1> {props.Name}</h1>
