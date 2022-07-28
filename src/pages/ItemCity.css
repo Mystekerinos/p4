@@ -1,8 +1,5 @@
-.Background {
-  /*image utilisé*/
-  background-image: url(../images/weather.jpeg);
-
-  /* image plein ecran */
+.Day {
+  background-image: url(../images/Day.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,4 +7,5 @@
   position: fixed;
   min-width: 100%;
   min-height: 100%;
+  text-align: center;
 }

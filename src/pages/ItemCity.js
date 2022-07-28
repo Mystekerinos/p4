@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-
 import PropTypes from "prop-types";
 import { firstItemsGetDataName, firstNameFetchData } from "../Actions/items";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MainHeader from "../composants/MainHeader";
+import "./ItemCity.css";
 
 const ItemCity = (props) => {
   console.log("ItemCity.props", props);
@@ -43,6 +43,7 @@ const ItemCity = (props) => {
       props.main?.humidity,
       props.main?.pressure
     );
+
     if (
       props.Name === undefined ||
       props.weather?.[0].icon === undefined ||
@@ -60,7 +61,7 @@ const ItemCity = (props) => {
     ) {
       console.log("UrlState", enteredSearch);
       props.firstName(
-        ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=72764d37fc4792a2cf79d9d399c90a1a&lang=fr`
+        ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=58c31d5f6b961866f2e94454624a348b&lang=fr`
       );
       props.nameFirstFetchData(enteredSearch);
     }
@@ -95,48 +96,49 @@ const ItemCity = (props) => {
   return (
     <div>
       <MainHeader />
-
       <br />
       <br />
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <h1> {props.Name}</h1>
       <br />
       <br />
       <br />
 
-      <p>
-        <img
-          src={`http://openweathermap.org/img/wn/${props.weather?.[0].icon}@2x.png`}
-          alt=""
-        />
+      <div className="Day">
+        <h1> {props.Name}</h1>
         <br />
-        Base: "{props.base}"
         <br />
-        Description: "{props.weather?.[0].description}"
         <br />
-        Date/Heure: {day}
-        <br />
-        Pays: "{props.sys?.country}"
-        <br />
-        Nuage en %: {props.clouds?.all}
-        <br />
-        Temp C°: {props.main?.temp}
-        <br />
-        Vitesse du vent en Mph: {props.wind?.speed}
-        <br />
-        Humidité en %: {props.main?.humidity}
-        <br />
-        Pression en Pascal: {props.main?.pressure}
-      </p>
+        <p>
+          <img
+            src={`http://openweathermap.org/img/wn/${props.weather?.[0].icon}@2x.png`}
+            alt=""
+          />
+          <br />
+          Base: "{props.base}"
+          <br />
+          Description: "{props.weather?.[0].description}"
+          <br />
+          Date: {day}
+          <br />
+          Pays: "{props.sys?.country}"
+          <br />
+          Nuage en %: {props.clouds?.all}
+          <br />
+          Temp C°: {props.main?.temp}
+          <br />
+          Vitesse du vent en Mph: {props.wind?.speed}
+          <br />
+          Humidité en %: {props.main?.humidity}
+          <br />
+          Pression en Pascal: {props.main?.pressure}
+        </p>
+        <div />
+      </div>
     </div>
   );
 };
-
 ItemCity.propTypes = {
   hasError: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
