@@ -1,4 +1,6 @@
-.Day {
+/* Image plein écran */
+
+.ItemCityIllustration {
   background-image: url(../images/Day.jpeg);
   background-position: center;
   background-repeat: no-repeat;
@@ -8,4 +10,9 @@
   min-width: 100%;
   min-height: 100%;
   text-align: center;
+}
+
+.Date {
+  display: flex;
+  justify-content: flex-end;
 }

@@ -11,8 +11,9 @@ const ItemCity = (props) => {
 
   const { enteredSearch } = useParams();
 
-  const d = new Date();
-  const day = d.toLocaleString(d.getDate(props.date));
+  const unixTimestamp = props.date;
+  const date = new Date(unixTimestamp * 1000);
+  const day = date.toLocaleString();
 
   useEffect(() => {
     console.log(
@@ -96,16 +97,13 @@ const ItemCity = (props) => {
   return (
     <div>
       <MainHeader />
-      <br />
-      <br />
-      <br />
-      <br />
+
       <br />
       <br />
       <br />
       <br />
 
-      <div className="Day">
+      <div className="ItemCityIllustration">
         <h1> {props.Name}</h1>
         <br />
         <br />
@@ -120,7 +118,7 @@ const ItemCity = (props) => {
           <br />
           Description: "{props.weather?.[0].description}"
           <br />
-          Date: {day}
+          Date de l'information : {day}
           <br />
           Pays: "{props.sys?.country}"
           <br />
