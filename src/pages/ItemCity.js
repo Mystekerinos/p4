@@ -114,11 +114,11 @@ const ItemCity = (props) => {
             alt=""
           />
           <br />
+          Date de publication : {day}
+          <br />
           Base: "{props.base}"
           <br />
           Description: "{props.weather?.[0].description}"
-          <br />
-          Date de l'information : {day}
           <br />
           Pays: "{props.sys?.country}"
           <br />
