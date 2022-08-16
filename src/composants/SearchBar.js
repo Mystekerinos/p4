@@ -42,7 +42,7 @@ const SearchBar = (props) => {
                   disabled={!formIsValid}
                   onClick={() => {
                     props.fetchData(
-                      ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid=58c31d5f6b961866f2e94454624a348b&lang=fr`
+                      ` https://api.openweathermap.org/data/2.5/weather?q=${enteredSearch}&appid={token}&lang=fr`
                     );
                     props.fetchName(enteredSearch);
                   }}
