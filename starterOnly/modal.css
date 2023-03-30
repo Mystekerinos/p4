@@ -476,7 +476,7 @@ footer {
     float: right;
     display: block;
     margin-top:-0.75rem;
-    margin-right:0.6rem;
+    margin-right:1.5rem;
   }
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
@@ -545,6 +545,7 @@ img {
 }
 .topnav {
   margin-left:0rem;
+  margin-top:3rem;
 }
 
 @keyframes modalopen {
