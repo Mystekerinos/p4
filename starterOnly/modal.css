@@ -620,3 +620,11 @@ img {
   }
 } 
 
+
+@media screen and (max-width: 300px) {
+
+  .hero-headline {
+    font-size: 9.5vw;
+   
+  }
+}
