@@ -31,12 +31,13 @@ img {
 }
 
 .topnav {
-  margin-bottom:2rem;
-  margin-left:0.5rem;
+  margin-top:3rem;
+  margin-bottom:3.5rem;
+  margin-left:0rem;
 }
 .header-logo {
     float: left;
-    margin-left:2.5rem;
+    margin-left:3rem;
 }
 .main-navbar {
     float: right;
@@ -458,10 +459,7 @@ img {
   height:auto;
   width:auto;
 }
-.topnav {
-  margin-left:0rem;
-  margin-top:3rem;
-}
+
 
 @keyframes modalopen {
   from {
@@ -482,6 +480,11 @@ img {
     margin-top:-0.75rem;
     margin-right:2rem;
   }
+
+  .header-logo{
+    margin-left:2.5rem;
+  }
+
   .hero-section {
     display: block;
     box-shadow: unset;
