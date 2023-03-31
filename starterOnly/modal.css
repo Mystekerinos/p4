@@ -408,8 +408,8 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  margin-top:1.4rem;
-  font-size: 9.9vh;
+  margin-top:0.6rem;
+  font-size: 10vh;
   font-weight: normal;
   white-space: nowrap;
 }
