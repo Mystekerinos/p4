@@ -410,7 +410,7 @@ input[data-error]::after {
 }
 .hero-headline {
   margin-top:0.2rem;
-  font-size: 7.08vw;
+  font-size: 5.18vw;
   font-weight: normal;
   white-space: nowrap;
 }
