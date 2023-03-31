@@ -41,7 +41,7 @@ img {
 }
 .main-navbar {
     float: right;
-    margin-right:0.8rem;
+    margin-right:2.9rem;
 }
 .topnav a {
   float: left;
@@ -51,7 +51,6 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 1.6vw;
   font-family: Roboto, sans-serif;
 }
 
