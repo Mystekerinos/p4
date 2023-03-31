@@ -456,8 +456,8 @@ footer {
 
 img {
   padding-right: 0px;
-  height:auto;
-  width:auto;
+  height:3.1vw;
+  width:19.6vw;
 }
 
 
@@ -493,7 +493,7 @@ img {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 9px;
+    padding: 9px 9px 9px 2px;
   }
   .hero-content::after {
     content: unset;
@@ -502,12 +502,12 @@ img {
     display: none;
   }
   .hero-headline {
-    font-size: 4.6vh;
+    font-size: 10.6vw;
     width:unset;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5vh;
+    font-size: 2.6vh;
     margin-top:17px;
   }
   .hero-img img {
@@ -518,19 +518,28 @@ img {
     display: block;
     margin: 32px auto 0px;
     padding: 0px 3px;
-    width:141px;
-    height:31px;
-    font-size:1.4vh;
+    width:313px;
+    height:48px;
+    font-size:2.4vh;
   }
   .copyrights {
-    margin: 20px 0px 26px 0px;
-    font-size:1.05vh;
+    margin: 26px 0px 25px 23px;
+    font-size:2.09vh;
     text-align: center;
+  }
+
+
+  main {
+  
+    padding-left: 2vw;
+    padding-right: 2vw;
+   
+  
   }
   img {
     padding-right: 1rem;
-    height:19px;
-    width:100px;
+    height:45px;
+    width:224px;
   }
 }
 
@@ -540,8 +549,8 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top:-0.75rem;
-    margin-right:2rem;
+    margin-top:-0.4rem;
+    margin-right:1.2rem;
   }
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
@@ -565,6 +574,49 @@ img {
     display: block;
     margin-top: -0.75rem;
     margin-right:0.6rem;
+  }
+
+  .hero-text {
+   
+    font-size: 1.5vh;
+   
+  }
+  .header-logo{
+    margin-left:2rem;
+  }
+
+
+  .topnav {
+
+    margin-bottom:0.5rem;
+  }
+  .hero-headline {
+    font-size: 9.5vw;
+    width:unset;
+  }
+  .hero-headline {
+    font-size: 10vw;
+   
+  }
+  .hero-content {
+   
+    padding: 9px 9px 9px 1px;
+  }
+  img {
+    padding-right: 1rem;
+    height:19px;
+    width:110px;
+  }
+  .hero-section > .btn-signup {
+ 
+    width:141px;
+    height:31px;
+    font-size:1.4vh;
+  }
+  .copyrights {
+    margin: 26px 0px 25px 0px;
+    font-size:1.08vh;
+   
   }
 } 
 
