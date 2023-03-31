@@ -41,7 +41,7 @@ img {
 }
 .main-navbar {
     float: right;
-    margin-left:0.8rem;
+    margin-right:0.8rem;
 }
 .topnav a {
   float: left;
@@ -388,7 +388,7 @@ input[data-error]::after {
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
+  padding: 51px 43px;
   grid-column: span 5;
   background: #232323;
   color: #fff;
@@ -409,8 +409,8 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  margin-top:0.6rem;
-  font-size: 9.5vh;
+  margin-top:0.2rem;
+  font-size: 10vh;
   font-weight: normal;
   white-space: nowrap;
 }
