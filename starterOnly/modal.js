@@ -12,6 +12,10 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const modalBtnClose = document.querySelectorAll(".close");
+const firstName = document.getElementById("first");
+const lastName = document.getElementById("last");
+const email = document.getElementById("email");
+const birthdate = document.getElementById("birthdate");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -30,26 +34,33 @@ function closeModal() {
 function launchModal() {
   modalbg.style.display = "block";
 }
-var b_civilite = false;
-var b_nom = false;
-var b_prenom = false;
-var b_date = false;
-var b_mail = false;
-var b_mp = false;
 
-function send() {
+// check input form
+//check firstName
+
+function checkFirstName() {
   if (
-    b_civilite == true &&
-    b_nom == true &&
-    b_prenom == true &&
-    b_date == true &&
-    b_mail == true &&
-    b_mp == true
+    firstName.value.trim().length < 2 ||
+    first.value.trim() === "" ||
+    !firstName.value.match(regex)
   ) {
-    document.getElementById("message").innerText = "Envoi serveur";
-    //document.getElementById('inscription').submit();
-  } else {
-    document.getElementById("message").innerText =
-      "Le formulaire n'est pas complet";
+    firstName.parentElement.setAttribute("data-error-visible", "true");
+    firstName.style.border = "2px solid #e54858";
+    return false;
   }
+  first.parentElement.setAttribute("data-error-visible", "false");
+  first.style.border = "solid #279e7a 0.19rem";
+  return true;
 }
+
+// check lastName
+
+function checkLastName() {}
+
+// check email
+
+function checkEmail() {}
+
+// check birthdate
+
+function checkBirthdate() {}
