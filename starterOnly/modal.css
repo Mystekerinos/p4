@@ -460,6 +460,11 @@ img {
 }
 
 
+.red-input{
+  border: 1px solid red;
+
+}
+
 @keyframes modalopen {
   from {
     opacity: 0;

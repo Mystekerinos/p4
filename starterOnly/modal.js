@@ -41,25 +41,53 @@ function launchModal() {
 function checkFirstName() {
   if (
     firstName.value.trim().length < 2 ||
-    first.value.trim() === "" ||
+    firstName.value.trim() === " " ||
     !firstName.value.match(regex)
   ) {
-    firstName.parentElement.setAttribute("data-error-visible", "true");
-    firstName.style.border = "2px solid #e54858";
+    firstName.style.border = "2px solid #f00020";
+    firstName.style.background = "#f00020";
     return false;
   }
-  first.parentElement.setAttribute("data-error-visible", "false");
-  first.style.border = "solid #279e7a 0.19rem";
+  firstName.parentElement.setAttribute("data-error-visible", "false");
+  firstName.style.border = "solid #279e7a 0.19rem";
   return true;
 }
 
+// document.getElementById('input_id').classList.add('red-input');
+
 // check lastName
 
-function checkLastName() {}
-
+function checkLastName() {
+  if (
+    lastName.value.trim().length < 2 ||
+    lastName.value.trim() === " " ||
+    !lastName.value.match(regex)
+  ) {
+    lastName.style.border = "#f00020";
+    lastName.style.background = "#f00020";
+    return false;
+  }
+  {
+    return true;
+  }
+}
 // check email
 
-function checkEmail() {}
+function checkEmail() {
+  if (
+    email.value.trim().length < 2 ||
+    email.value.find() !== "@" ||
+    email.value.trim() === " " ||
+    !email.value.match(regex)
+  ) {
+    email.style.border = "#f00020";
+    email.style.background = "#f00020";
+    return false;
+  }
+  {
+    return true;
+  }
+}
 
 // check birthdate
 
