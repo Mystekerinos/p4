@@ -17,6 +17,7 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
+const allLocations = document.getElementById("allLocations");
 
 var regex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -106,6 +107,17 @@ function checkBirthdate() {
     return false;
   }
   return true;
+}
+
+function checkLocations() {
+  allLocations.setAttribute("data-error-visible", "true");
+  for (let i = 0; i < locations.length; i++) {
+    if (locations[i].checked) {
+      allLocations.setAttribute("data-error-visible", "false");
+      return true;
+    }
+  }
+  return false;
 }
 
 function submit() {
