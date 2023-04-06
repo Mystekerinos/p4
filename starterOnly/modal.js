@@ -63,13 +63,13 @@ function checkLastName() {
     lastName.value.trim() === " " ||
     !lastName.value.match(regex)
   ) {
-    lastName.style.border = "#f00020";
+    lastName.style.border = "2px solid #f00020";
     lastName.style.background = "#f00020";
     return false;
   }
-  {
-    return true;
-  }
+  lastName.parentElement.setAttribute("data-error-visible", "false");
+  lastName.style.border = "solid #279e7a 0.19rem";
+  return true;
 }
 // check email
 
