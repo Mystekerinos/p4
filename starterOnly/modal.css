@@ -26,6 +26,14 @@ p {
   padding: 0.5vw;
 }
 
+
+#nameInfo{
+   display:none;
+  font-size:1rem;
+  color:#ff0000;
+  
+}
+
 img {
   padding-right: 1rem;
 }

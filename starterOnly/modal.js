@@ -18,6 +18,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const allLocations = document.getElementById("allLocations");
+const nameInfo = document.getElementById("nameInfo");
 
 var regex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -53,16 +54,13 @@ function checkFirstName() {
     firstName.value.trim() === " " ||
     !firstName.value.match(regex)
   ) {
-    firstName.style.border = "2px solid #f00020";
-    firstName.style.background = "#f00020";
+    nameInfo.style.display = "block";
+
     return false;
   }
-  firstName.parentElement.setAttribute("data-error-visible", "false");
-  firstName.style.border = "solid #279e7a 0.19rem";
+
   return true;
 }
-
-// document.getElementById('input_id').classList.add('red-input');
 
 // check lastName
 
@@ -72,12 +70,11 @@ function checkLastName() {
     lastName.value.trim() === " " ||
     !lastName.value.match(regex)
   ) {
-    lastName.style.border = "2px solid #f00020";
-    lastName.style.background = "#f00020";
+    nameInfo.style.display = "block";
+
     return false;
   }
-  lastName.parentElement.setAttribute("data-error-visible", "false");
-  lastName.style.border = "solid #279e7a 0.19rem";
+
   return true;
 }
 // check email
@@ -89,8 +86,8 @@ function checkEmail() {
     email.value.trim() === " " ||
     !email.value.match(regex)
   ) {
-    email.style.border = "#f00020";
-    email.style.background = "#f00020";
+    nameInfo.style.display = "block";
+
     return false;
   }
   {
@@ -101,13 +98,26 @@ function checkEmail() {
 // check birthdate
 
 function checkBirthdate() {
-  if (!birthdate.value.match(regex)) {
-    birthdate.style.border = "#f00020";
-    birthdate.style.background = "#f00020";
+  if (birthdate.value != [0 - 9]) {
+    nameInfo.style.display = "block";
+
     return false;
   }
   return true;
 }
+
+// check Number of tournament
+
+function checkNumberOfTournament() {
+  if (!birthdate.value.match(regex)) {
+    nameInfo.style.display = "block";
+
+    return false;
+  }
+  return true;
+}
+
+// check Location
 
 function checkLocations() {
   allLocations.setAttribute("data-error-visible", "true");
@@ -117,14 +127,29 @@ function checkLocations() {
       return true;
     }
   }
+  nameInfo.style.display = "block";
   return false;
 }
 
-function submit() {
-  if (formData.value.match(regex)) {
+function formValidation() {
+  if (
+    checkFirstName() === true &&
+    checkBirthdate() === true &&
+    checkLocations() === true &&
+    checkBirthdate() === true &&
+    checkEmail() === true &&
+    checkLastName() === true
+  ) {
     return true;
   }
-  {
-    return false;
+
+  return false;
+}
+
+function submitModal(e) {
+  e.preventDefault();
+  if (formValidation() === true) {
+    return true;
   }
+  formData.reset();
 }
