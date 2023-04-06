@@ -11,6 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const btnSubmit = document.querySelectorAll(".btn-submit");
 const modalBtnClose = document.querySelectorAll(".close");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -19,6 +20,10 @@ const birthdate = document.getElementById("birthdate");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// submit modal event
+btnSubmit.forEach((btn) => btn.addEventListener("click", submitModal));
+
 // close modal event
 modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
 // launch modal form
@@ -31,8 +36,8 @@ function closeModal() {
 }
 
 // send modal form
-function launchModal() {
-  modalbg.style.display = "block";
+function submitModal() {
+  btnSubmit.style.display = "block";
 }
 
 // check input form
@@ -91,4 +96,20 @@ function checkEmail() {
 
 // check birthdate
 
-function checkBirthdate() {}
+function checkBirthdate() {
+  if (!birthdate.value.match(regex)) {
+    birthdate.style.border = "#f00020";
+    birthdate.style.background = "#f00020";
+    return false;
+  }
+  return true;
+}
+
+function submit() {
+  if (formData.value.match(regex)) {
+    return true;
+  }
+  {
+    return false;
+  }
+}
