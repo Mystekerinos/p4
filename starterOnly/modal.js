@@ -1,5 +1,5 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
+  const x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -17,10 +17,11 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
+const numberOfTournament = document.getElementById("quantity");
 const allLocations = document.getElementById("allLocations");
 const nameInfo = document.getElementById("nameInfo");
 
-var regex =
+const regex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 // launch modal event
@@ -55,10 +56,9 @@ function checkFirstName() {
     !firstName.value.match(regex)
   ) {
     nameInfo.style.display = "block";
-
     return false;
   }
-
+  nameInfo.style.display = "none";
   return true;
 }
 
@@ -71,10 +71,9 @@ function checkLastName() {
     !lastName.value.match(regex)
   ) {
     nameInfo.style.display = "block";
-
     return false;
   }
-
+  nameInfo.style.display = "none";
   return true;
 }
 // check email
@@ -87,10 +86,10 @@ function checkEmail() {
     !email.value.match(regex)
   ) {
     nameInfo.style.display = "block";
-
     return false;
   }
   {
+    nameInfo.style.display = "none";
     return true;
   }
 }
@@ -100,20 +99,20 @@ function checkEmail() {
 function checkBirthdate() {
   if (birthdate.value != [0 - 9]) {
     nameInfo.style.display = "block";
-
     return false;
   }
+  nameInfo.style.display = "none";
   return true;
 }
 
 // check Number of tournament
 
 function checkNumberOfTournament() {
-  if (!birthdate.value.match(regex)) {
+  if (!numberOfTournament.value.match(regex)) {
     nameInfo.style.display = "block";
-
     return false;
   }
+  nameInfo.style.display = "none";
   return true;
 }
 
@@ -124,6 +123,7 @@ function checkLocations() {
   for (let i = 0; i < locations.length; i++) {
     if (locations[i].checked) {
       allLocations.setAttribute("data-error-visible", "false");
+      nameInfo.style.display = "none";
       return true;
     }
   }
