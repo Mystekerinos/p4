@@ -149,6 +149,7 @@ function formValidation() {
 function submitModal(e) {
   e.preventDefault();
   if (formValidation() === true) {
+    alert("Merci ! Votre réservation a été reçue.");
     return true;
   }
   formData.reset();
