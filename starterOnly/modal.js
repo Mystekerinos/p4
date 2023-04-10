@@ -19,6 +19,7 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const numberOfTournament = document.getElementById("quantity");
 const allLocations = document.getElementById("allLocations");
+const form = document.getElementById("form");
 const nameInfo = document.getElementById("nameInfo");
 
 const regex =
@@ -152,5 +153,6 @@ function submitModal(e) {
     alert("Merci ! Votre réservation a été reçue.");
     return true;
   }
-  formData.reset();
+  form.reset();
+  return false;
 }
