@@ -51,31 +51,33 @@ function submitModal() {
 //check firstName
 
 function checkFirstName() {
-  if (
-    firstName.value.trim().length < 2 ||
-    firstName.value.trim() === " " ||
-    !firstName.value.match(regex)
-  ) {
+  console.log(
+    "prénom",
+    firstName.value.trim().length < 2,
+    firstName.value.trim() === " "
+  );
+  if (firstName.value.trim().length < 2 || firstName.value.trim() === " ") {
     nameInfo.style.display = "block";
-    return false;
+    return true;
   }
   nameInfo.style.display = "none";
-  return true;
+  return false;
 }
 
 // check lastName
 
 function checkLastName() {
-  if (
-    lastName.value.trim().length < 2 ||
-    lastName.value.trim() === " " ||
-    !lastName.value.match(regex)
-  ) {
+  console.log(
+    "nom",
+    lastName.value.trim().length < 2,
+    lastName.value.trim() === " "
+  );
+  if (lastName.value.trim().length < 2 || lastName.value.trim() === " ") {
     nameInfo.style.display = "block";
-    return false;
+    return true;
   }
   nameInfo.style.display = "none";
-  return true;
+  return false;
 }
 // check email
 
