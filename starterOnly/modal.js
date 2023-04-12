@@ -82,6 +82,11 @@ function checkLastName() {
 // check email
 
 function checkEmail() {
+  console.log(
+    "email",
+    email.value.trim().length < 2,
+    email.value.trim() === " "
+  );
   if (
     email.value.trim().length < 2 ||
     email.value.find() !== "@" ||
@@ -100,6 +105,11 @@ function checkEmail() {
 // check birthdate
 
 function checkBirthdate() {
+  console.log(
+    "birthdate",
+    birthdate.value.trim().length < 2,
+    birthdate.value.trim() === " "
+  );
   if (birthdate.value != [0 - 9]) {
     nameInfo.style.display = "block";
     return false;
@@ -111,6 +121,11 @@ function checkBirthdate() {
 // check Number of tournament
 
 function checkNumberOfTournament() {
+  console.log(
+    "numberOfTournament",
+    numberOfTournament.value.trim().length < 2,
+    numberOfTournament.value.trim() === " "
+  );
   if (!numberOfTournament.value.match(regex)) {
     nameInfo.style.display = "block";
     return false;
