@@ -29,7 +29,7 @@ const regex =
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // submit modal event
-btnSubmit.forEach((btn) => btn.addEventListener("click", submitModal));
+btnSubmit.forEach((btn) => btn.addEventListener("click", launchValidation));
 
 // close modal event
 modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
@@ -58,10 +58,10 @@ function checkFirstName() {
   );
   if (firstName.value.trim().length < 2 || firstName.value.trim() === " ") {
     nameInfo.style.display = "block";
-    return true;
+    return false;
   }
   nameInfo.style.display = "none";
-  return false;
+  return true;
 }
 
 // check lastName
@@ -74,10 +74,10 @@ function checkLastName() {
   );
   if (lastName.value.trim().length < 2 || lastName.value.trim() === " ") {
     nameInfo.style.display = "block";
-    return true;
+    return false;
   }
   nameInfo.style.display = "none";
-  return false;
+  return true;
 }
 // check email
 
@@ -85,13 +85,13 @@ function checkEmail() {
   console.log(
     "email",
     email.value.trim().length < 2,
-    email.value.trim() === " "
+    email.value.trim() === " ",
+    email.value.trim() !== "@"
   );
   if (
     email.value.trim().length < 2 ||
     email.value.find() !== "@" ||
-    email.value.trim() === " " ||
-    !email.value.match(regex)
+    email.value.trim() === " "
   ) {
     nameInfo.style.display = "block";
     return false;
@@ -105,12 +105,8 @@ function checkEmail() {
 // check birthdate
 
 function checkBirthdate() {
-  console.log(
-    "birthdate",
-    birthdate.value.trim().length < 2,
-    birthdate.value.trim() === " "
-  );
-  if (birthdate.value != [0 - 9]) {
+  console.log("birthdate", birthdate.value !== [0 - 9]);
+  if (birthdate.value !== [0 - 9]) {
     nameInfo.style.display = "block";
     return false;
   }
@@ -123,21 +119,20 @@ function checkBirthdate() {
 function checkNumberOfTournament() {
   console.log(
     "numberOfTournament",
-    numberOfTournament.value.trim().length < 2,
+
     numberOfTournament.value.trim() === " "
   );
-  if (!numberOfTournament.value.match(regex)) {
+  if (numberOfTournament.value.trim() === " ") {
     nameInfo.style.display = "block";
-    return false;
+    return true;
   }
   nameInfo.style.display = "none";
-  return true;
+  return false;
 }
 
 // check Location
 
-function checkLocations() {
-  allLocations.setAttribute("data-error-visible", "true");
+function checkLocations(locations) {
   for (let i = 0; i < locations.length; i++) {
     if (locations[i].checked) {
       allLocations.setAttribute("data-error-visible", "false");
@@ -149,7 +144,19 @@ function checkLocations() {
   return false;
 }
 
+function launchValidation() {
+  checkFirstName(), checkLastName(), checkBirthdate(), checkEmail();
+}
+
 function formValidation() {
+  console.log(
+    checkBirthdate,
+    checkEmail,
+    checkLocations,
+    checkNumberOfTournament,
+    checkFirstName,
+    checkLastName
+  );
   if (
     checkFirstName() === true &&
     checkBirthdate() === true &&
