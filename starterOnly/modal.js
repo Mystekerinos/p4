@@ -10,6 +10,7 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
+const nameInfo = document.querySelectorAll(".nameInfo");
 const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.querySelectorAll(".btn-submit");
 const modalBtnClose = document.querySelectorAll(".close");
@@ -20,10 +21,8 @@ const birthdate = document.getElementById("birthdate");
 const numberOfTournament = document.getElementById("quantity");
 const allLocations = document.getElementById("allLocations");
 const form = document.getElementById("form");
-const nameInfo = document.getElementById("nameInfo");
 
-const regex =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -42,11 +41,6 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// send modal form
-function submitModal() {
-  btnSubmit.style.display = "block";
-}
-
 // check input form
 //check firstName
 
@@ -54,13 +48,18 @@ function checkFirstName() {
   console.log(
     "prénom",
     firstName.value.trim().length < 2,
-    firstName.value.trim() === " "
+    firstName.value.trim() === " ",
+    !firstName.value.match(regex)
   );
-  if (firstName.value.trim().length < 2 || firstName.value.trim() === " ") {
-    nameInfo.style.display = "block";
+  if (
+    firstName.value.trim().length < 2 ||
+    firstName.value.trim() === " " ||
+    !firstName.value.match(regex)
+  ) {
+    // nameInfo.style.display = "block";
     return false;
   }
-  nameInfo.style.display = "none";
+  // nameInfo.style.display = "none";
   return true;
 }
 
@@ -70,14 +69,19 @@ function checkLastName() {
   console.log(
     "nom",
     lastName.value.trim().length < 2,
-    lastName.value.trim() === " "
+    lastName.value.trim() === " ",
+    !lastName.value.match(regex)
   );
-  if (lastName.value.trim().length < 2 || lastName.value.trim() === " ") {
+  if (
+    lastName.value.trim().length < 2 ||
+    lastName.value.trim() === " " ||
+    !lastName.value.match(regex)
+  ) {
     nameInfo.style.display = "block";
     return false;
   }
   nameInfo.style.display = "none";
-  return true;
+  return false;
 }
 // check email
 
@@ -145,7 +149,10 @@ function checkLocations(locations) {
 }
 
 function launchValidation() {
-  checkFirstName(), checkLastName(), checkBirthdate(), checkEmail();
+  checkFirstName();
+  checkLastName();
+  checkBirthdate();
+  checkEmail();
 }
 
 function formValidation() {
@@ -175,8 +182,6 @@ function submitModal(e) {
   e.preventDefault();
   if (formValidation() === true) {
     alert("Merci ! Votre réservation a été reçue.");
-    return true;
   }
   form.reset();
-  return false;
 }

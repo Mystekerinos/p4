@@ -27,7 +27,7 @@ p {
 }
 
 
-#nameInfo{
+.nameInfo{
    display:none;
   font-size:1rem;
   color:#ff0000;
