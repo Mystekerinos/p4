@@ -88,15 +88,18 @@ function checkLastName() {
 // check email
 
 function checkEmail() {
+  const Vmail =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   console.log(
     "email",
     email.value.trim().length < 2,
     email.value.trim() === " ",
-    email.value.trim() !== "@"
+    email.value.match(Vmail)
   );
+
   if (
     email.value.trim().length < 2 ||
-    email.value.find() !== "@" ||
+    email.value.match(Vmail) ||
     email.value.trim() === " "
   ) {
     nameInfo[2].style.display = "block";
@@ -111,8 +114,8 @@ function checkEmail() {
 // check birthdate
 
 function checkBirthdate() {
-  console.log("birthdate", birthdate.value !== [0 - 9]);
-  if (birthdate.value != [0 - 9]) {
+  console.log("birthdate", birthdate.value.trim().length !== 10);
+  if (birthdate.value.trim().length !== 10) {
     nameInfo[3].style.display = "block";
     return false;
   }
@@ -125,28 +128,35 @@ function checkBirthdate() {
 function checkNumberOfTournament() {
   console.log(
     "numberOfTournament",
-
-    numberOfTournament.value.trim() === " "
+    quantity.value.trim().length === 0 ||
+      isNaN(quantity.value.trim()) === true ||
+      quantity.value.trim() < 0
   );
-  if (numberOfTournament.value.trim() === " ") {
+  if (
+    quantity.value.trim().length === 0 ||
+    isNaN(quantity.value.trim()) === true ||
+    quantity.value.trim() < 0
+  ) {
     nameInfo[4].style.display = "block";
-    return true;
+    return false;
   }
+
   nameInfo[4].style.display = "none";
-  return false;
+  return true;
 }
 
 // check Location
 
 function checkLocations(locations) {
+  console.log("chcekLocations", locations.length);
   for (let i = 0; i < locations.length; i++) {
     if (locations[i].checked) {
-      nameInfo[5].style.display = "none";
-      return true;
+      nameInfo[5].style.display = "block";
+      return false;
     }
   }
-  nameInfo[5].style.display = "block";
-  return false;
+  nameInfo[5].style.display = "none";
+  return true;
 }
 
 function launchValidation() {
@@ -184,6 +194,7 @@ function submitModal(e) {
   e.preventDefault();
   if (formValidation() === true) {
     alert("Merci ! Votre réservation a été reçue.");
+    form.reset();
   }
-  form.reset();
+  launchValidation();
 }
