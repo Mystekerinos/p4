@@ -53,13 +53,15 @@ function checkFirstName() {
   );
   if (
     firstName.value.trim().length < 2 ||
-    firstName.value.trim() === " " ||
+    first.value.trim() === "" ||
     !firstName.value.match(regex)
   ) {
-    // nameInfo.style.display = "block";
+    nameInfo[0].style.display = "block";
+    return false;
+
     return false;
   }
-  // nameInfo.style.display = "none";
+  nameInfo[0].style.display = "none";
   return true;
 }
 
@@ -77,10 +79,10 @@ function checkLastName() {
     lastName.value.trim() === " " ||
     !lastName.value.match(regex)
   ) {
-    nameInfo.style.display = "block";
+    nameInfo[1].style.display = "block";
     return false;
   }
-  nameInfo.style.display = "none";
+  nameInfo[1].style.display = "none";
   return false;
 }
 // check email
@@ -97,11 +99,11 @@ function checkEmail() {
     email.value.find() !== "@" ||
     email.value.trim() === " "
   ) {
-    nameInfo.style.display = "block";
+    nameInfo[2].style.display = "block";
     return false;
   }
   {
-    nameInfo.style.display = "none";
+    nameInfo[2].style.display = "none";
     return true;
   }
 }
@@ -110,11 +112,11 @@ function checkEmail() {
 
 function checkBirthdate() {
   console.log("birthdate", birthdate.value !== [0 - 9]);
-  if (birthdate.value !== [0 - 9]) {
-    nameInfo.style.display = "block";
+  if (birthdate.value != [0 - 9]) {
+    nameInfo[3].style.display = "block";
     return false;
   }
-  nameInfo.style.display = "none";
+  nameInfo[3].style.display = "none";
   return true;
 }
 
@@ -127,10 +129,10 @@ function checkNumberOfTournament() {
     numberOfTournament.value.trim() === " "
   );
   if (numberOfTournament.value.trim() === " ") {
-    nameInfo.style.display = "block";
+    nameInfo[4].style.display = "block";
     return true;
   }
-  nameInfo.style.display = "none";
+  nameInfo[4].style.display = "none";
   return false;
 }
 
@@ -139,20 +141,20 @@ function checkNumberOfTournament() {
 function checkLocations(locations) {
   for (let i = 0; i < locations.length; i++) {
     if (locations[i].checked) {
-      allLocations.setAttribute("data-error-visible", "false");
-      nameInfo.style.display = "none";
+      nameInfo[5].style.display = "none";
       return true;
     }
   }
-  nameInfo.style.display = "block";
+  nameInfo[5].style.display = "block";
   return false;
 }
 
 function launchValidation() {
   checkFirstName();
   checkLastName();
-  checkBirthdate();
   checkEmail();
+  checkBirthdate();
+  checkLocations();
 }
 
 function formValidation() {
