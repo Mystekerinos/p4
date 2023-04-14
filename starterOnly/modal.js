@@ -10,7 +10,7 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const nameInfo = document.querySelectorAll(".nameInfo");
+const errorMsg = document.querySelectorAll(".errorMsg");
 const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.querySelector(".btn-submit");
 const modalBtnClose = document.querySelectorAll(".close");
@@ -52,10 +52,10 @@ function checkFirstName() {
     first.value.trim() === "" ||
     !firstName.value.match(regex)
   ) {
-    nameInfo[0].style.display = "block";
+    errorMsg[0].style.display = "block";
     return false;
   }
-  nameInfo[0].style.display = "none";
+  errorMsg[0].style.display = "none";
   return true;
 }
 
@@ -67,32 +67,31 @@ function checkLastName() {
     lastName.value.trim() === " " ||
     !lastName.value.match(regex)
   ) {
-    nameInfo[1].style.display = "block";
+    errorMsg[1].style.display = "block";
     return false;
   }
-  nameInfo[1].style.display = "none";
+  errorMsg[1].style.display = "none";
   return true;
 }
 // check email
 
 function checkEmail() {
   if (mailFormatRegex.test(email.value) === false) {
-
-    nameInfo[2].style.display = "block";
+    errorMsg[2].style.display = "block";
     return false;
   }
-    nameInfo[2].style.display = "none";
-    return true;
+  errorMsg[2].style.display = "none";
+  return true;
 }
 
 // check birthdate
 
 function checkBirthdate() {
   if (birthdate.value.trim().length === 0) {
-    nameInfo[3].style.display = "block";
+    errorMsg[3].style.display = "block";
     return false;
   }
-  nameInfo[3].style.display = "none";
+  errorMsg[3].style.display = "none";
   return true;
 }
 
@@ -104,59 +103,60 @@ function checkNumberOfTournament() {
     isNaN(quantity.value.trim()) === true ||
     quantity.value.trim() < 0
   ) {
-    nameInfo[4].style.display = "block";
+    errorMsg[4].style.display = "block";
     return false;
   }
 
-  nameInfo[4].style.display = "none";
+  errorMsg[4].style.display = "none";
   return true;
 }
 
 // check Location
 
 function checkLocations() {
-
   const radiosInput = document.querySelectorAll(".radio-input");
   let isChecked = false;
-  for(let i=0; i < radiosInput.length; i++){
-      if(radiosInput[i].checked === true){
-          isChecked = true;
-          break;
-      }
+  for (let i = 0; i < radiosInput.length; i++) {
+    if (radiosInput[i].checked === true) {
+      isChecked = true;
+      break;
+    }
   }
 
-  if(isChecked === false){
-      nameInfo[5].style.display = "block";
-      return isChecked;
+  if (isChecked === false) {
+    errorMsg[5].style.display = "block";
+    return isChecked;
   }
-  
-  nameInfo[5].style.display = "none";
+
+  errorMsg[5].style.display = "none";
   return isChecked;
 }
 
-function checkValidation(event){
+function checkValidation(event) {
+  event.preventDefault();
 
-    event.preventDefault();
+  const isCheckFirstName = checkFirstName();
 
-     const isCheckFirstName = checkFirstName();
+  const iscCheckLastName = checkLastName();
 
-     const iscCheckLastName = checkLastName();
+  const isCheckEmail = checkEmail();
 
-     const isCheckEmail = checkEmail();
+  const isCheckBirthdate = checkBirthdate();
 
-     const isCheckBirthdate = checkBirthdate();
+  const isCheckNumberOfTournament = checkNumberOfTournament();
 
-     const isCheckNumberOfTournament = checkNumberOfTournament();
+  const isCheckLocations = checkLocations();
 
-     const isCheckLocations = checkLocations();
+  if (
+    isCheckFirstName === true &&
+    iscCheckLastName === true &&
+    isCheckEmail === true &&
+    isCheckBirthdate === true &&
+    isCheckNumberOfTournament === true &&
+    isCheckLocations === true
+  ) {
+    // On affiche la modale du message reussi.
 
-     if(isCheckFirstName === true && iscCheckLastName === true && isCheckEmail === true && isCheckBirthdate === true && isCheckNumberOfTournament === true && isCheckLocations === true){
-
-        // On affiche la modale du message reussi.
-
-        alert("Youpii")
-        
-
-     }
-
+    alert("Youpii");
+  }
 }

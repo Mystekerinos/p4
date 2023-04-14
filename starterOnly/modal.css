@@ -26,12 +26,10 @@ p {
   padding: 0.5vw;
 }
 
-
-.nameInfo{
-   display:none;
-  font-size:1rem;
-  color:#ff0000;
-  
+.errorMsg {
+  display: none;
+  font-size: 1rem;
+  color: #ff0000;
 }
 
 img {
@@ -39,22 +37,22 @@ img {
 }
 
 .topnav {
-  margin-top:3rem;
-  margin-bottom:3.5rem;
-  margin-left:0rem;
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  margin-left: 0rem;
 }
 .header-logo {
-    float: left;
-    margin-left:6vw;
+  float: left;
+  margin-left: 6vw;
 }
 .main-navbar {
-    float: right;
-    margin-right:2.9rem;
+  float: right;
+  margin-right: 2.9rem;
 }
 .topnav a {
   float: left;
   display: block;
-  color:  #FF001B;
+  color: #ff001b;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -68,7 +66,7 @@ img {
   border-radius: 15px;
 }
 
-.topnav a:active span{
+.topnav a:active span {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
@@ -77,9 +75,6 @@ img {
 .topnav .icon {
   display: none;
 }
-
-
-
 
 main {
   font-size: 130%;
@@ -91,11 +86,7 @@ main {
   margin: 1px 20px 0px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
-
-
 
 .modal-btn {
   font-size: 145%;
@@ -416,7 +407,7 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  margin-top:0.2rem;
+  margin-top: 0.2rem;
   font-size: 5.18vw;
   font-weight: normal;
   white-space: nowrap;
@@ -449,7 +440,7 @@ input[data-error]::after {
   font-size: 1.2vh;
   margin: 55px 0 30px;
   font-weight: bolder;
-  margin-left:-0.43rem;
+  margin-left: -0.43rem;
 }
 .hero-section > .btn-signup {
   display: none;
@@ -460,17 +451,14 @@ footer {
   margin: 0 20px;
 }
 
-
 img {
   padding-right: 0px;
-  height:3.1vw;
-  width:14.1vw;
+  height: 3.1vw;
+  width: 14.1vw;
 }
 
-
-.red-input{
+.red-input {
   border: 1px solid red;
-
 }
 
 @keyframes modalopen {
@@ -483,24 +471,25 @@ img {
   }
 }
 
-
 @media screen and (max-width: 800px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top:-0.75rem;
-    margin-right:2rem;
+    margin-top: -0.75rem;
+    margin-right: 2rem;
   }
 
-  .header-logo{
-    margin-left:2.5rem;
+  .header-logo {
+    margin-left: 2.5rem;
   }
 
   .hero-section {
     display: block;
     box-shadow: unset;
-    min-height:inherit;
+    min-height: inherit;
   }
   .hero-content {
     background: #fff;
@@ -515,12 +504,12 @@ img {
   }
   .hero-headline {
     font-size: 10.6vw;
-    width:unset;
+    width: unset;
   }
   .hero-text {
     width: unset;
     font-size: 2.6vh;
-    margin-top:17px;
+    margin-top: 17px;
   }
   .hero-img img {
     border-radius: 10px;
@@ -530,41 +519,40 @@ img {
     display: block;
     margin: 32px auto 0px;
     padding: 0px 3px;
-    width:313px;
-    height:48px;
-    font-size:2.4vh;
+    width: 313px;
+    height: 48px;
+    font-size: 2.4vh;
   }
   .copyrights {
     margin: 26px 0px 25px 23px;
-    font-size:2.09vh;
+    font-size: 2.09vh;
     text-align: center;
   }
 
-
   main {
-  
     padding-left: 2vw;
     padding-right: 2vw;
-   
-  
   }
   img {
     padding-right: 1rem;
-    height:45px;
-    width:224px;
+    height: 45px;
+    width: 224px;
   }
 }
 
-
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top:-0.4rem;
-    margin-right:1.2rem;
+    margin-top: -0.4rem;
+    margin-right: 1.2rem;
   }
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 3rem;
@@ -574,69 +562,59 @@ img {
     float: none;
     display: block;
     text-align: left;
-    margin-top:2.5rem;
+    margin-top: 2.5rem;
   }
-
 }
 
 @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -0.75rem;
-    margin-right:-1.4rem;
+    margin-right: -1.4rem;
   }
 
   .hero-text {
-   
     font-size: 0.8rem;
-   
   }
-  .header-logo{
-    margin-left:2rem;
+  .header-logo {
+    margin-left: 2rem;
   }
-
 
   .topnav {
-
-    margin-bottom:0.5rem;
+    margin-bottom: 0.5rem;
   }
   .hero-headline {
     font-size: 9.5vw;
-    width:unset;
+    width: unset;
   }
   .hero-headline {
     font-size: 10vw;
-   
   }
   .hero-content {
-   
     padding: 9px 9px 9px 1px;
   }
   img {
     padding-right: 1rem;
-    height:19px;
-    width:110px;
+    height: 19px;
+    width: 110px;
   }
   .hero-section > .btn-signup {
- 
-    width:141px;
-    height:31px;
-    font-size:1.4vh;
+    width: 141px;
+    height: 31px;
+    font-size: 1.4vh;
   }
   .copyrights {
     margin: 26px 0px 25px 0px;
-    font-size:0.56rem;
-   
+    font-size: 0.56rem;
   }
-} 
-
+}
 
 @media screen and (max-width: 300px) {
-
   .hero-headline {
     font-size: 9.5vw;
-   
   }
 }
