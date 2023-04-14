@@ -17,12 +17,13 @@ const modalBtnClose = document.querySelectorAll(".close");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
+
 const birthdate = document.getElementById("birthdate");
 const numberOfTournament = document.getElementById("quantity");
 const allLocations = document.getElementById("allLocations");
 const form = document.getElementById("form");
 
-const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+const Identityregex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
 const mailFormatRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -50,7 +51,7 @@ function checkFirstName() {
   if (
     firstName.value.trim().length < 2 ||
     first.value.trim() === "" ||
-    !firstName.value.match(regex)
+    !firstName.value.match(Identityregex)
   ) {
     errorMsg[0].style.display = "block";
     return false;
@@ -65,7 +66,7 @@ function checkLastName() {
   if (
     lastName.value.trim().length < 2 ||
     lastName.value.trim() === " " ||
-    !lastName.value.match(regex)
+    !lastName.value.match(Identityregex)
   ) {
     errorMsg[1].style.display = "block";
     return false;
@@ -132,6 +133,18 @@ function checkLocations() {
   return isChecked;
 }
 
+// check Term of use
+function checkTermOfUse() {
+  const CheckBoxInput = document.querySelector(".radio-input-formData");
+
+  if (CheckBoxInput.checked === false) {
+    errorMsg[6].style.display = "block";
+    return false;
+  }
+  errorMsg[6].style.display = "none";
+  return true;
+}
+
 function checkValidation(event) {
   event.preventDefault();
 
@@ -147,16 +160,19 @@ function checkValidation(event) {
 
   const isCheckLocations = checkLocations();
 
+  const ischeckTermOfUse = checkTermOfUse();
+
   if (
     isCheckFirstName === true &&
     iscCheckLastName === true &&
     isCheckEmail === true &&
     isCheckBirthdate === true &&
     isCheckNumberOfTournament === true &&
-    isCheckLocations === true
+    isCheckLocations === true &&
+    ischeckTermOfUse === true
   ) {
-    // On affiche la modale du message reussi.
+    // We display the modal of the successful message.
 
-    alert("Youpii");
+    alert("Merci! Votre réservation a bien été reçue.");
   }
 }
