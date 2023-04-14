@@ -12,7 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const nameInfo = document.querySelectorAll(".nameInfo");
 const formData = document.querySelectorAll(".formData");
-const btnSubmit = document.querySelectorAll(".btn-submit");
+const btnSubmit = document.querySelector(".btn-submit");
 const modalBtnClose = document.querySelectorAll(".close");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -24,11 +24,13 @@ const form = document.getElementById("form");
 
 const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
+const mailFormatRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // submit modal event
-btnSubmit.forEach((btn) => btn.addEventListener("click", launchValidation));
+btnSubmit.addEventListener("click", checkValidation);
 
 // close modal event
 modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
@@ -45,20 +47,12 @@ function closeModal() {
 //check firstName
 
 function checkFirstName() {
-  console.log(
-    "prénom",
-    firstName.value.trim().length < 2,
-    firstName.value.trim() === " ",
-    !firstName.value.match(regex)
-  );
   if (
     firstName.value.trim().length < 2 ||
     first.value.trim() === "" ||
     !firstName.value.match(regex)
   ) {
     nameInfo[0].style.display = "block";
-    return false;
-
     return false;
   }
   nameInfo[0].style.display = "none";
@@ -68,12 +62,6 @@ function checkFirstName() {
 // check lastName
 
 function checkLastName() {
-  console.log(
-    "nom",
-    lastName.value.trim().length < 2,
-    lastName.value.trim() === " ",
-    !lastName.value.match(regex)
-  );
   if (
     lastName.value.trim().length < 2 ||
     lastName.value.trim() === " " ||
@@ -83,39 +71,24 @@ function checkLastName() {
     return false;
   }
   nameInfo[1].style.display = "none";
-  return false;
+  return true;
 }
 // check email
 
 function checkEmail() {
-  const Vmail =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  console.log(
-    "email",
-    email.value.trim().length < 2,
-    email.value.trim() === " ",
-    email.value.match(Vmail)
-  );
+  if (mailFormatRegex.test(email.value) === false) {
 
-  if (
-    email.value.trim().length < 2 ||
-    email.value.match(Vmail) ||
-    email.value.trim() === " "
-  ) {
     nameInfo[2].style.display = "block";
     return false;
   }
-  {
     nameInfo[2].style.display = "none";
     return true;
-  }
 }
 
 // check birthdate
 
 function checkBirthdate() {
-  console.log("birthdate", birthdate.value.trim().length !== 10);
-  if (birthdate.value.trim().length !== 10) {
+  if (birthdate.value.trim().length === 0) {
     nameInfo[3].style.display = "block";
     return false;
   }
@@ -126,12 +99,6 @@ function checkBirthdate() {
 // check Number of tournament
 
 function checkNumberOfTournament() {
-  console.log(
-    "numberOfTournament",
-    quantity.value.trim().length === 0 ||
-      isNaN(quantity.value.trim()) === true ||
-      quantity.value.trim() < 0
-  );
   if (
     quantity.value.trim().length === 0 ||
     isNaN(quantity.value.trim()) === true ||
@@ -147,54 +114,49 @@ function checkNumberOfTournament() {
 
 // check Location
 
-function checkLocations(locations) {
-  console.log("chcekLocations", locations.length);
-  for (let i = 0; i < locations.length; i++) {
-    if (locations[i].checked) {
+function checkLocations() {
+
+  const radiosInput = document.querySelectorAll(".radio-input");
+  let isChecked = false;
+  for(let i=0; i < radiosInput.length; i++){
+      if(radiosInput[i].checked === true){
+          isChecked = true;
+          break;
+      }
+  }
+
+  if(isChecked === false){
       nameInfo[5].style.display = "block";
-      return false;
-    }
+      return isChecked;
   }
+  
   nameInfo[5].style.display = "none";
-  return true;
+  return isChecked;
 }
 
-function launchValidation() {
-  checkFirstName();
-  checkLastName();
-  checkEmail();
-  checkBirthdate();
-  checkLocations();
-}
+function checkValidation(event){
 
-function formValidation() {
-  console.log(
-    checkBirthdate,
-    checkEmail,
-    checkLocations,
-    checkNumberOfTournament,
-    checkFirstName,
-    checkLastName
-  );
-  if (
-    checkFirstName() === true &&
-    checkBirthdate() === true &&
-    checkLocations() === true &&
-    checkBirthdate() === true &&
-    checkEmail() === true &&
-    checkLastName() === true
-  ) {
-    return true;
-  }
+    event.preventDefault();
 
-  return false;
-}
+     const isCheckFirstName = checkFirstName();
 
-function submitModal(e) {
-  e.preventDefault();
-  if (formValidation() === true) {
-    alert("Merci ! Votre réservation a été reçue.");
-    form.reset();
-  }
-  launchValidation();
+     const iscCheckLastName = checkLastName();
+
+     const isCheckEmail = checkEmail();
+
+     const isCheckBirthdate = checkBirthdate();
+
+     const isCheckNumberOfTournament = checkNumberOfTournament();
+
+     const isCheckLocations = checkLocations();
+
+     if(isCheckFirstName === true && iscCheckLastName === true && isCheckEmail === true && isCheckBirthdate === true && isCheckNumberOfTournament === true && isCheckLocations === true){
+
+        // On affiche la modale du message reussi.
+
+        alert("Youpii")
+        
+
+     }
+
 }
