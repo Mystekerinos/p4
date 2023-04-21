@@ -39,7 +39,9 @@ btnSubmit.addEventListener("click", checkValidation);
 // close modal event
 modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
 // close modal form
-modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModalConf));
+modalBtnCloseConf.forEach((btn) =>
+  btn.addEventListener("click", closeModalConf)
+);
 
 // launch modal form
 function launchModal() {
