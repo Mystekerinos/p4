@@ -436,6 +436,12 @@ input[data-error]::after {
   font-weight: normal;
   font-size: 36px;
   margin-top:252px;
+  margin-left:112px;
+}
+.text-label-conf2 {
+  font-weight: normal;
+  font-size: 36px;
+  margin-left:69px;
 }
 .hero-section {
   border-radius: 10px;
