@@ -9,7 +9,9 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
+const modalbgConf = document.querySelector(".bgroundConf");
 const modalBtn = document.querySelectorAll(".modal-btn");
+
 const errorMsg = document.querySelectorAll(".errorMsg");
 const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.querySelector(".btn-submit");
@@ -42,6 +44,15 @@ function launchModal() {
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+}
+
+// launch modal conf
+function launchModalConf() {
+  modalbgConf.style.display = "block";
+}
+// close modal conf
+function closeModal() {
+  modalbgConf.style.display = "none";
 }
 
 // check input form
@@ -170,9 +181,8 @@ function checkValidation(event) {
     isCheckNumberOfTournament === true &&
     isCheckLocations === true &&
     ischeckTermOfUse === true
-  ) {
+  )
     // We display the modal of the successful message.
 
-    alert("Merci! Votre réservation a bien été reçue.");
-  }
+    return launchModalConf();
 }
