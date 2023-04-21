@@ -677,13 +677,20 @@ img {
     margin: 26px 0px 25px 0px;
     font-size: 0.56rem;
   }
-  .bground {
-   
-    background-color: rgba(26, 39, 156, 0.4);
-  }
-  .bgroundConf {
  
-    background-color: rgba(26, 39, 156, 0.4);
+  .content {
+    margin: 25% auto;
+    
+  }
+  .topnav {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+    margin-left: 0rem;
+    z-index:2;
+    background-color:white;
+  }
+  .bground {
+    height:inherit;
   }
 }
 
