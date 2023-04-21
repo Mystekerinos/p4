@@ -16,6 +16,7 @@ const errorMsg = document.querySelectorAll(".errorMsg");
 const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.querySelector(".btn-submit");
 const modalBtnClose = document.querySelectorAll(".close");
+const modalBtnCloseConf = document.querySelectorAll(".closeConf");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
@@ -37,6 +38,9 @@ btnSubmit.addEventListener("click", checkValidation);
 
 // close modal event
 modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
+// close modal form
+modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModalConf));
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -49,9 +53,10 @@ function closeModal() {
 // launch modal conf
 function launchModalConf() {
   modalbgConf.style.display = "block";
+  modalbg.style.display = "none";
 }
 // close modal conf
-function closeModal() {
+function closeModalConf() {
   modalbgConf.style.display = "none";
 }
 
