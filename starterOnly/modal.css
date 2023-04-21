@@ -139,7 +139,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: white;
 }
 
 .bgroundConf {
@@ -151,7 +151,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color:white;
 }
 .content {
   margin: 5% auto;
@@ -676,6 +676,14 @@ img {
   .copyrights {
     margin: 26px 0px 25px 0px;
     font-size: 0.56rem;
+  }
+  .bground {
+   
+    background-color: rgba(26, 39, 156, 0.4);
+  }
+  .bgroundConf {
+ 
+    background-color: rgba(26, 39, 156, 0.4);
   }
 }
 
