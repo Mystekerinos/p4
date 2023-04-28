@@ -139,7 +139,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: white;
+  background-color: rgba(26,39,156,0.4);
 }
 
 .bgroundConf {
@@ -151,7 +151,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color:white;
+  background-color:rgba(26,39,156,0.4);
 }
 .content {
   margin: 5% auto;
@@ -692,6 +692,26 @@ img {
   .bground {
     height:inherit;
   }
+  .text-label-conf2 {
+    
+    margin-left:46px;
+  }
+  .text-label-conf {
+   
+    margin-left:84px;
+  }
+
+  .btn-submit-conf,
+.btn-conf {
+  
+  margin-left:69px;
+  
+}
+.bgroundConf {
+ 
+  top: 11px;
+ 
+}
 }
 
 @media screen and (max-width: 300px) {
