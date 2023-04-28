@@ -77,7 +77,7 @@ img {
 }
 
 main {
-  font-size: 130%;
+  font-size: 128%;
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
@@ -474,7 +474,7 @@ input[data-error]::after {
 }
 .hero-headline {
   margin-top: 0.2rem;
-  font-size: 5.18vw;
+  font-size: 4.9vw;
   font-weight: normal;
   white-space: nowrap;
 }
