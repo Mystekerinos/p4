@@ -679,8 +679,8 @@ img {
   }
  
   .content {
-    margin: 25% auto;
-    
+    margin-top: 25%;
+    margin-bottom:auto;
   }
   .topnav {
     margin-top: 3rem;
@@ -692,6 +692,7 @@ img {
   .bground {
     height:inherit;
     background-color: white;
+    position:absolute;
     
   }
   .text-label-conf2 {
@@ -714,12 +715,9 @@ img {
   top: 11px;
   background-color:white; 
   height: inherit;
+  position:absolute;
 }
-.bground {
 
-  height: inherit;
- 
-}
 
 }
 
