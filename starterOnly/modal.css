@@ -712,10 +712,15 @@ img {
 .bgroundConf {
  
   top: 11px;
-  background-color:white;
-  
+  background-color:white; 
+  height: inherit;
+}
+.bground {
+
+  height: inherit;
  
 }
+
 }
 
 @media screen and (max-width: 300px) {
