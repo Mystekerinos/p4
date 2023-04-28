@@ -691,6 +691,8 @@ img {
   }
   .bground {
     height:inherit;
+    background-color: white;
+    
   }
   .text-label-conf2 {
     
