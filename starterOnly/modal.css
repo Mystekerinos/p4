@@ -52,7 +52,7 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #ff001b;
+  color: black;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -540,6 +540,7 @@ img {
 @media screen and (max-width: 800px) {
   .topnav a {
     display: none;
+    color: #ff001b;
   }
   .topnav a.icon {
     float: right;
@@ -547,6 +548,7 @@ img {
     margin-top: -0.75rem;
     margin-right: 2rem;
   }
+ 
 
   .header-logo {
     margin-left: 2.5rem;
@@ -717,7 +719,6 @@ img {
   height: inherit;
   position:absolute;
 }
-
 
 }
 
