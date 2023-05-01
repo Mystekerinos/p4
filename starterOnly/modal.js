@@ -65,33 +65,19 @@ function closeModalConf() {
 // check input form
 //check firstName
 
-function checkFirstName() {
+function checkIdentityName(identityName, index) {
   if (
-    firstName.value.trim().length < 2 ||
-    first.value.trim() === "" ||
-    !firstName.value.match(Identityregex)
+    identityName.value.trim().length < 2 ||
+    identityName.value.trim() === "" ||
+    !identityName.value.match(Identityregex)
   ) {
-    errorMsg[0].style.display = "block";
+    errorMsg[index].style.display = "block";
     return false;
   }
-  errorMsg[0].style.display = "none";
+  errorMsg[index].style.display = "none";
   return true;
 }
 
-// check lastName
-
-function checkLastName() {
-  if (
-    lastName.value.trim().length < 2 ||
-    lastName.value.trim() === " " ||
-    !lastName.value.match(Identityregex)
-  ) {
-    errorMsg[1].style.display = "block";
-    return false;
-  }
-  errorMsg[1].style.display = "none";
-  return true;
-}
 // check email
 
 function checkEmail() {
@@ -166,9 +152,9 @@ function checkTermOfUse() {
 function checkValidation(event) {
   event.preventDefault();
 
-  const isCheckFirstName = checkFirstName();
+  const isCheckFirstName = checkIdentityName(firstName, 0);
 
-  const iscCheckLastName = checkLastName();
+  const iscCheckLastName = checkIdentityName(lastName, 1);
 
   const isCheckEmail = checkEmail();
 
