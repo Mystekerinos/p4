@@ -63,7 +63,7 @@ function closeModalConf() {
 }
 
 // check input form
-//check firstName
+//check identityName
 
 function checkIdentityName(identityName, index) {
   if (
