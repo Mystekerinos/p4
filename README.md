@@ -2,7 +2,7 @@
 
 Formation Développeur d'application - JavaScript React
 
-#P4  Créez une landing page avec Javascript
+**#P4  Créez une landing page avec Javascript**
 
 
 
@@ -12,14 +12,14 @@ Formation Développeur d'application - JavaScript React
 <img width="865" alt="Capture d’écran 2024-09-01 à 21 08 35" src="https://github.com/user-attachments/assets/4458a8b9-9f85-472b-96b6-b1dc66a52435">
 <img width="829" alt="Capture d’écran 2024-09-01 à 21 08 26" src="https://github.com/user-attachments/assets/ebd2df99-cd39-4ac3-a4d9-cc68549f9ddd">
 
-Spécifications Techniques
+**Spécifications Techniques**
 
 Langages utilisés : HTML, CSS et Javascript
 Validation au W3C
 Compatible avec Chrome et Firefox
 Desktop first puis s’adapte au format responsive
 
-Spécifications fonctionnelles
+**Spécifications fonctionnelles**
 
 Tester toutes les fonctionnalités des boutons et des entrées de formulaire (tester les valeurs correctes et incorrectes)
 Après une validation réussie, inclure un message de confirmation de la soumission réussie pour l'utilisateur (ex. "Merci ! Votre réservation a été reçue.")
