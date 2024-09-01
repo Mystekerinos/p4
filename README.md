@@ -2,7 +2,7 @@
 
 Formation Développeur d'application - JavaScript React
 
-# p4  Créez une landing page avec Javascript
+#P4  Créez une landing page avec Javascript
 
 
 
